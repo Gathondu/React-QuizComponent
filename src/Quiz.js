@@ -21,20 +21,23 @@ class Quiz extends Component {
     render() {
         const isQuizEnd =
             this.state.quiz_position - 1 === quizData.quiz_questions.length;
-        return (
-            <div>
-                {isQuizEnd ? (
-                    <QuizEnd resetClickHandler={this.handleResetClick.bind(this)}/>
-                ) : (
-                        <QuizQuestion
-                            showNextQuestionHandler={this.showNextQuestion.bind(this)}
-                            quiz_question={
-                                quizData.quiz_questions[this.state.quiz_position - 1]
-                            }
-                        />
-                    )}
-            </div>
-        );
+        return <div className="tile is-ancestor">
+            {isQuizEnd ? (
+              <QuizEnd
+                resetClickHandler={this.handleResetClick.bind(this)}
+              />
+            ) : (
+              <QuizQuestion
+                showNextQuestionHandler={this.showNextQuestion.bind(
+                  this
+                )}
+                quiz_question={
+                  quizData.quiz_questions[this.state.quiz_position - 1]
+                }
+                index={this.state.quiz_position}
+              />
+            )}
+          </div>;
     }
 }
 
