@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
 class QuizEnd extends Component {
-    handleResetClick() {
+    handleResetClick = () => {
         this.props.resetClickHandler();
     }
 
@@ -10,7 +10,7 @@ class QuizEnd extends Component {
                 <div className="notification is-success">
                 <h1>Thanks for playing!</h1>
                 <br/>
-                <a className="button is-dark" onClick={this.handleResetClick.bind(this)}>
+                <a className="button is-dark" onClick={this.handleResetClick}>
                 Reset Quiz
               </a>
             </div>
